@@ -2,9 +2,9 @@
 @import 'scss/var';
 @import 'scss/function';
 @import 'scss/breakpoints';
-@import 'elements/inputs';
-@import 'elements/range';
-@import 'elements/checkbox';
+@import 'controlsStyle/inputs';
+@import 'controlsStyle/range';
+@import 'controlsStyle/checkbox';
 
 html {
   line-height: $mainLineHeight;
@@ -200,7 +200,7 @@ section {
                 display: flex;
                 flex-direction: row;
                 flex-wrap: nowrap;
-                gap: 50px;
+                gap: 55px;
                 justify-content: space-between;
 
                 .tooltip__line__value {
@@ -273,7 +273,5 @@ section {
         }
       }
     }
-
-
   }
 }

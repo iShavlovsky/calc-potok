@@ -26,9 +26,10 @@
                                 placeholder="сумма займа"
                                 title="min:300000, max:20000000"
                                 class="loan-calculator__input-calc"
-                                type="text"
+                                type="number"
                                 max="20000000"
                                 min="300000"
+                                value="10000000"
                                 autofocus
                         />
                         <label for="loan-amount-range"
@@ -62,10 +63,11 @@
                                 type="number"
                                 max="24"
                                 min="1"
+                                value="12"
                         />
-                        <label for="loan-term_range"
+                        <label for="loan-term-range"
                                class="loan-calculator__range_input_label">
-                            <input id="loan-term_range"
+                            <input id="loan-term-range"
                                    class="loan-calculator__slider loan-calculator__slider-progress"
                                    type="range"
                                    max="24"
@@ -93,6 +95,7 @@
                             type="text"
                             max="20000000"
                             min="0"
+                            value="10000000"
                     />
                     <label for="average-monthly-revenue-range"
                            class="loan-calculator__range_input_label">
@@ -102,7 +105,8 @@
                              max="20000000"
                              min="0"
                              step="10000"
-                             value="480000"/>
+                             value="10000000"
+                      />
                     </label>
                     <div class="input-description">
                       <span>0 ₽</span>
@@ -173,10 +177,10 @@
                             численность сотрудников
                         </p>
                         <label class="loan-calculator__number-checkbox-label"
-                               for="more-or-less">
+                               for="number-of-employees">
                             более 10 человек
                             <input
-                                    id="more-or-less"
+                                    id="number-of-employees"
                                     title="более 10 человек"
                                     class="loan-calculator__checkbox"
                                     type="checkbox"
