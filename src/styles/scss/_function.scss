@@ -1,0 +1,11 @@
+@function em($pixels, $context: $var-browser-context-em) {
+  @return calc($pixels / $context) * 1em
+}
+
+@function vw($pixels, $context: $var-browser-context-px){
+  @return calc($pixels * $context) * 1vw
+}
+
+@function px($pixels, $context: $var-browser-context-px){
+  @return calc($pixels * $context) * 1px
+}

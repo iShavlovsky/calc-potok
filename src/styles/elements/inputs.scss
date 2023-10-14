@@ -1,0 +1,27 @@
+.loan-calculator__number-input-label, .input-description {
+  font-family: Suisse Intl, sans-serif;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 110%; /* 13.2px */
+  letter-spacing: 0.24px;
+  color: $secondaryFontColor;
+}
+
+.loan-calculator__input-calc {
+  //min-width: 337px;
+  width: auto;
+  min-height: 60px;
+  border: none;
+  border-radius: 8px;
+  padding: 18px $inputsPadding 18px $inputsPadding   ;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 120%;
+  -moz-appearance:textfield;
+  background-color: $backgroundElementColor;
+  margin: 12px 0 14px 0;
+  &:focus {
+    border: none;
+  }
+}

@@ -1,0 +1,17 @@
+@mixin tablet {
+  @media (max-width: map-get($var-breakpoints, bp-l)) {
+    @content
+	}
+}
+
+@mixin horizmobile {
+  @media (max-width: map-get($var-breakpoints, bp-m)) {
+    @content
+	}
+}
+
+@mixin mobile {
+  @media (max-width: map-get($var-breakpoints, bp-s)) {
+    @content
+	}
+}

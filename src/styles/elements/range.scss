@@ -1,0 +1,140 @@
+.loan-calculator__range_input_label {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0 $inputsPadding 27px $inputsPadding;
+}
+
+.loan-calculator__slider {
+  //min-width: 337px;
+  width: auto;
+  height: 1px;
+  -webkit-appearance: none;
+  background-color: black;
+  &:focus {
+    outline: none;
+  }
+
+  &::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    background: #173B57;
+    border: none;
+    box-shadow: none;
+    margin-top: calc(1px * 0.5 - 10px * 0.5);
+    cursor: grab;
+    &:hover {
+      background: #173B57;
+      cursor: grab;
+    }
+    &:active {
+      background: #173B57;
+      cursor: grab;
+    }
+  }
+
+  &::-webkit-slider-runnable-track {
+    height: 1px;
+    border: none;
+    border-radius: 1px;
+    background: #FFFEFE00;
+    box-shadow: none;
+    cursor: pointer;
+  }
+
+  &::-moz-range-thumb {
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    background: #173B57;
+    border: none;
+    box-shadow: none;
+    cursor: grab;
+    &:hover {
+      background: #173B57;
+      cursor: grab;
+    }
+    &:active {
+      background: #173B57;
+      cursor: grab;
+    }
+  }
+  &::-moz-range-track {
+    height: 1px;
+    border: none;
+    border-radius: 1px;
+    background: #FFFEFE00;
+    box-shadow: none;
+    cursor: pointer;
+  }
+
+  &::-ms-fill-upper {
+    background: transparent;
+    border-color: transparent;
+    cursor: pointer;
+  }
+
+  &::-ms-fill-lower {
+    background: transparent;
+    border-color: transparent;
+    cursor: pointer;
+  }
+
+  &::-ms-thumb {
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    background: #173B57;
+    border: none;
+    box-shadow: none;
+    margin-top: 0;
+    box-sizing: border-box;
+    cursor: grab;
+    &:hover {
+      background: #173B57;
+      cursor: grab;
+    }
+    &:active {
+      background: #173B57;
+      cursor: grab;
+    }
+  }
+
+  &::-ms-track {
+    height: 1px;
+    background: #FFFEFE00;
+    border: none;
+    box-shadow: none;
+    box-sizing: border-box;
+    cursor: pointer;
+  }
+
+}
+
+/*progress support*/
+.loan-calculator__slider-progress {
+  --range: calc(var(--max) - var(--min));
+  --ratio: calc((var(--value) - var(--min)) / var(--range));
+  --sx: calc(0.5 * 10px + var(--ratio) * (100% - 10px));
+
+  &::-webkit-slider-runnable-track {
+    background: linear-gradient(#173B57,#173B57) 0/var(--sx) 100% no-repeat, #FFFEFE00;
+  }
+
+  &::-moz-range-track {
+    background: linear-gradient(#173B57,#173B57) 0/var(--sx) 100% no-repeat, #FFFEFE00;
+  }
+
+  &::-ms-fill-lower {
+    height: 1px;
+    background: #173B57;
+    border: none;
+    border-right-width: 0;
+    cursor: pointer;
+  }
+}

@@ -1,0 +1,279 @@
+@import 'scss/reset';
+@import 'scss/var';
+@import 'scss/function';
+@import 'scss/breakpoints';
+@import 'elements/inputs';
+@import 'elements/range';
+@import 'elements/checkbox';
+
+html {
+  line-height: $mainLineHeight;
+  font-size: $mainFontSize;
+  color: $mainColor;
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: $mainFont;
+  font-size: $mainFontSize;
+  font-weight: $mainFontWeight;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+section {
+  background-color: #fff;
+  padding: 70px 48px;
+  position: static;
+}
+.section-placeholder{
+  height: 100vh;
+}
+.container {
+  width: 1614px;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+}
+
+.error {
+  /*border: 1px solid red !important;*/
+  color: red !important;
+  background-color: rgba(255, 0, 0, 0.18) !important;
+}
+
+.loan-calculator-heading{
+  color: $mainColor;
+  font-family: $mainFont;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 110%; /* 22px */
+}
+
+.loan-calculator{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  gap:50px;
+  margin-top: 30px;
+
+  .loan-calculator__left-colum{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 40px;
+
+    .loan-calculator__left-colum__input-section{
+      display: flex;
+      flex-direction: column;
+      gap:30px;
+
+      .loan-calculator__input-w{
+        position: relative;
+        display: flex;
+        flex-direction: column;
+
+        .input-description{
+          display: flex;
+          width: 100%;
+          justify-content: space-between;
+          flex-direction: row;
+        }
+      }
+    }
+    .loan-calculator__left-colum__checks{
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      .loan-calculator__input-w {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        border-bottom: 1px solid #E8ECF0;
+
+        .loan-calculator__number-checkbox-heading{
+          color: $mainColor;
+          font-family: $mainFont;
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: 120%; /* 19.2px */
+        }
+
+        &:last-child:not(:only-child) {
+          border-bottom: none;
+        }
+      }
+    }
+  }
+
+  .loan-calculator__right-colum {
+    width: 100%;
+    min-height: 100%;
+    .loan-calculator__right-colum__rail{
+      top: 0;
+      position: sticky;
+
+      .loan-calculator__right-colum__result{
+        position: relative;
+        width: 100%;
+        height: auto;
+        padding: 40px 28px 49px 28px;
+        border-radius: 24px;
+        background-color: $backgroundElementColor;
+
+        .result__heading-w{
+          width: 100%;
+          color: $mainColor;
+          font-family: $mainFont;
+          font-size: 42px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: 100%; /* 42px */
+        }
+
+        .result__table{
+          width: 100%;
+          padding: 50px 0 70px 0;
+
+          .result__table__cell{
+
+            display: flex;
+            border-bottom: 1px solid #E8ECF0;
+            padding: 18px 0 18px 0;
+            color: $mainColor;
+            font-family: $mainFont;
+            font-size: 15px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 120%; /* 18px */
+
+            .table__cell__label{
+              width: 35%;
+            }
+            .table__cell__value{
+              align-content: center;
+              display: flex;
+              flex-direction: row;
+              justify-content: center;
+              align-items: flex-end;
+
+              span {
+                color: $mainColor;
+                font-family: $mainFont;
+                font-size: 20px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 110%; /* 22px */
+              }
+              .table__cell__tooltip-icon {
+                cursor: pointer;
+                width: 20px;
+              }
+            }
+            &:last-child:not(:only-child) {
+              border-bottom: none;
+            }
+
+            .table__cell__tooltip {
+              position: absolute;
+              padding: 10px;
+              display: flex;
+              bottom: 30%;
+              right: 8%;
+              flex-direction: column;
+              background: white;
+              border-radius: 8px;
+
+              .tooltip__cell__line{
+                display: flex;
+                flex-direction: row;
+                flex-wrap: nowrap;
+                gap: 50px;
+                justify-content: space-between;
+
+                .tooltip__line__value {
+                  color: $secondaryFontColor;
+                  font-family: $mainFont;
+                  font-size: 14px;
+                  font-style: normal;
+                  font-weight: 400;
+                  line-height: 22px; /* 157.143% */
+                }
+
+                .tooltip__line__result{
+                  color: $mainColor;
+                  text-align: right;
+                  font-family: $mainFont;
+                  font-size: 14px;
+                  font-style: normal;
+                  font-weight: 400;
+                  line-height: 22px; /* 157.143% */
+                }
+              }
+            }
+          }
+        }
+
+        .result__apply{
+          font-family: $mainFont;
+          font-size: 15px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: 100%; /* 15px */
+          display: inline-flex;
+          letter-spacing: 0.15px;
+          padding: 20px 32px 24px 32px;
+          border: 1px solid $mainColor;
+          border-radius: 8px;
+          color: $mainColor;
+          transition: color, background .2s;
+          &:hover {
+            color: white;
+            background: $mainColor;
+          }
+        }
+      }
+
+      .result__disclaimer-w{
+        max-width: 100%;
+        padding: 28px 70px 28px 0;
+
+        .result__disclaimer{
+          color: $secondaryFontColor;
+          font-family: $mainFont;
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 120%; /* 19.2px */
+
+          .result__disclaimer-link{
+            color: $mainColor;
+            font-family: $mainFont;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 120%;
+            transition: color .2s;
+            &:hover {
+              color: $secondaryFontColor;
+            }
+          }
+        }
+      }
+    }
+
+
+  }
+}

@@ -1,0 +1,19 @@
+$var-breakpoints: (
+  'bp-xl': 1440px,
+  'bp-l': 991px,
+  'bp-m': 767px,
+  'bp-s': 479px
+);
+// Font
+$mainFont                : 'Montserrat', sans-serif;
+
+
+$mainColor               : #173B57;
+$secondaryFontColor      : #87939E;
+
+$backgroundElementColor  : #F5F5F5;
+
+$mainFontSize            : 18px;
+$mainFontWeight          : 400;
+$mainLineHeight          : 1.4;
+$inputsPadding           : 24px
