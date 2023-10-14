@@ -14,56 +14,57 @@ function convertToRub(n: number): string {
   }).format(n);
 }
 
-function overPayment(interest: number) {
-  const amortization = toltipCalc();
-
-  const resultPercent = (interest / amortization).toFixed(0);
-  const resultSum = interest + amortization;
-  innerResult(tooltip.tooltipTotal, convertToRub(resultSum));
-  innerResult(result.resultPayment, convertToRub(resultSum));
-  innerResult(result.resultOverpayment, `${resultPercent}%`);
-}
-function toltipCalc() {
+function calculateAmortization() {
   const loanAmount = Number(input.loanAmount.value);
   const loanTerm = Number(input.loanTerm.value);
-  const result = loanAmount / loanTerm / factor2;
-  innerResult(tooltip.tooltipAmortization, convertToRub(result));
-  return result;
+  const amortization = loanAmount / loanTerm / factor2;
+  innerResult(tooltip.tooltipAmortization, convertToRub(amortization));
+  return amortization;
 }
 
-function interestRateCalc(rateC: number, rateV: number[]) {
+function calculateInterestAndOverPayment() {
   const loanAmount = Number(input.loanAmount.value);
-  const rateVPercent1 = (rateV[0] / 12).toFixed(1);
-  const rateVPercent2 = (rateV[1] / 12).toFixed(1);
-
-  const resultV = `${rateVPercent1}%-${rateVPercent2}%`;
-
-  const resultC = ((loanAmount * rateC) / yearDay) * factor1;
-
-  overPayment(resultC);
-  innerResult(result.resultRate, resultV);
-  innerResult(tooltip.tooltipInterest, convertToRub(resultC));
+  const [rateCEmployee, rateVRange] = getRateBasedOnRevenue();
+  const interest = ((loanAmount * Number(rateCEmployee)) / yearDay) * factor1;
+  const amortization = calculateAmortization();
+  const overPaymentPercent = (interest / amortization).toFixed(0);
+  const totalPayment = interest + amortization;
+  updateResults(totalPayment, overPaymentPercent, `${rateVRange}`, interest);
 }
+
 function innerResult(element: HTMLSpanElement, num: string) {
   element.innerText = num;
 }
 
-function geRevenue() {
+function updateResults(
+  totalPayment: number,
+  overPaymentPercent: string,
+  rateVRange: string,
+  interest: number,
+) {
+  innerResult(tooltip.tooltipTotal, convertToRub(totalPayment));
+  innerResult(result.resultPayment, convertToRub(totalPayment));
+  innerResult(result.resultOverpayment, `${overPaymentPercent}%`);
+  innerResult(result.resultRate, rateVRange);
+  innerResult(tooltip.tooltipInterest, convertToRub(interest));
+}
+
+function getRateBasedOnRevenue() {
   const employees = checkbox.numberOfEmployees.checked;
   const revenue = Number(input.averageMonthlyRevenue.value);
+
   for (let i = 0; i < revenueRange.length; i++) {
-    const cell1 = revenueRange[i][0] * 1000000;
-    const cell2 = revenueRange[i][1] * 1000000;
+    const [cell1, cell2] = revenueRange[i].map((x) => x * 1000000);
     if (revenue > cell1 && revenue < cell2) {
-      if (employees) {
-        innerResult(result.resultApproval, `${approval[i][1]}%`);
-        interestRateCalc(rateC[i][1], rateV[i][1]);
-      } else {
-        innerResult(result.resultApproval, `${approval[i][0]}%`);
-        interestRateCalc(rateC[i][0], rateV[i][0]);
-      }
+      const approvalRate = employees ? approval[i][1] : approval[i][0];
+      const rateCRes = employees ? rateC[i][1] : rateC[i][0];
+      const rateVRes = employees ? rateV[i][1] : rateV[i][0];
+
+      innerResult(result.resultApproval, `${approvalRate}%`);
+      return [rateCRes, `${(rateVRes[0] / 12).toFixed(1)}%-${(rateVRes[1] / 12).toFixed(1)}%`];
     }
   }
+  return [0, 0];
 }
 
 const syncValues = (source: HTMLInputElement, target: HTMLInputElement) => {
@@ -90,8 +91,7 @@ const syncValues = (source: HTMLInputElement, target: HTMLInputElement) => {
 };
 
 function inputValue(event: Event) {
-  geRevenue();
-  toltipCalc();
+  calculateInterestAndOverPayment();
   const inputElement = event.target as HTMLInputElement;
   if (inputElement !== null) {
     if (inputElement.type === 'range') {
@@ -137,25 +137,8 @@ function applyRangeLineEvent(ranges: ControlElements): void {
 }
 
 (function init() {
-  geRevenue();
-  toltipCalc();
+  calculateInterestAndOverPayment();
   applyRangeLineEvent(range);
   applyEventListeners(input, ['input', 'focus', 'paste']);
   applyEventListeners(checkbox, ['input', 'change']);
 })();
-
-// Default values.
-// function setDefault() {
-//   input.loanAmount.value = '10000000';
-//   input.loanTerm.value = '11';
-//   input.averageMonthlyRevenue.value = '5';
-// }
-
-// function validator(num: string, min: number, max: number): boolean {
-//   const re = /^[0-9\s]*$/;
-//   return re.test(num) && Number(num) >= min && Number(num) <= max;
-// }
-
-// function focusOff(n: string) {
-//   return n.replace(/\s/g, '');
-// }
