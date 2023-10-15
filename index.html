@@ -3,12 +3,11 @@
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Vite + TS</title>
-
-  <link rel="stylesheet" href="./assets/index-0d9762c2.css">
+    <title>калькулятор займа</title>
+  <link rel="stylesheet" href="./assets/index-0b19e5bd.css">
 </head>
 <body>
-<section id="app" class="section loan-calculator">
+<section id="app" class="section">
     <div class="container">
       <h2 class="loan-calculator-heading">калькулятор займа</h2>
         <div class="loan-calculator">
@@ -27,11 +26,9 @@
                                 placeholder="сумма займа"
                                 title="min:300000, max:20000000"
                                 class="loan-calculator__input-calc"
-                                type="number"
+                                type="text"
                                 max="20000000"
                                 min="300000"
-                                value="10000000"
-                                autofocus
                         />
                         <label for="loan-amount-range"
                                class="loan-calculator__range_input_label">
@@ -41,7 +38,7 @@
                                    max="20000000"
                                    min="300000"
                                    step="10000"
-                                   value="10000000"/>
+                            />
                         </label>
                         <div class="input-description">
                             <span>300 000 ₽</span>
@@ -64,7 +61,6 @@
                                 type="number"
                                 max="24"
                                 min="1"
-                                value="12"
                         />
                         <label for="loan-term-range"
                                class="loan-calculator__range_input_label">
@@ -74,7 +70,7 @@
                                    max="24"
                                    min="1"
                                    step="1"
-                                   value="12"/>
+                            />
                         </label>
                       <div class="input-description">
                         <span>1 месяц</span>
@@ -96,7 +92,6 @@
                             type="text"
                             max="20000000"
                             min="0"
-                            value="10000000"
                     />
                     <label for="average-monthly-revenue-range"
                            class="loan-calculator__range_input_label">
@@ -106,7 +101,6 @@
                              max="20000000"
                              min="0"
                              step="10000"
-                             value="10000000"
                       />
                     </label>
                     <div class="input-description">
@@ -131,8 +125,11 @@
                                     title="более 12 месяцев"
                                     class="loan-calculator__checkbox"
                                     type="checkbox"
+                                    checked
                             />
-                            <span class="checkmark"></span>
+                            <span title="срок регистрации компании, более или менее 12 месяцев"
+                                  class="checkmark">
+                            </span>
                         </label>
                     </div>
 
@@ -149,8 +146,12 @@
                                     title="положительная или нейтральная"
                                     class="loan-calculator__checkbox"
                                     type="checkbox"
+                                    checked
                             />
-                            <span class="checkmark"></span>
+                            <span title="положительная или нейтральная кредитная история"
+                                  class="checkmark">
+
+                            </span>
                         </label>
                     </div>
 
@@ -167,8 +168,11 @@
                                     title="положительная или нейтральная"
                                     class="loan-calculator__checkbox"
                                     type="checkbox"
+                                    checked
                             />
-                            <span class="checkmark"></span>
+                            <span title="стабильность выручки в каждый месяц"
+                                  class="checkmark">
+                            </span>
                         </label>
                     </div>
 
@@ -186,7 +190,9 @@
                                     class="loan-calculator__checkbox"
                                     type="checkbox"
                             />
-                            <span class="checkmark"></span>
+                            <span title="численность сотрудников более или менее 10 человек"
+                                  class="checkmark">
+                            </span>
                         </label>
                     </div>
 
@@ -220,9 +226,10 @@
                         <div class="result__table__cell">
                             <p class="table__cell__label">сумма платежа</p>
                             <p class="table__cell__value">
-                                <span id="result-payment">30 000 ₽</span>&nbsp;
-                              раз в 14 дней&nbsp;
-                              <span class="table__cell__tooltip-icon">
+                                <span id="result-payment">30 000 ₽</span>
+                              <span>&nbsp;раз в 14 дней&nbsp;</span>
+
+                              <span id="tooltip-icon" class="table__cell__tooltip-icon">
                               <svg xmlns="http://www.w3.org/2000/svg"
                                      fill="none"
                                      viewBox="0 0 20 20">
@@ -231,7 +238,7 @@
                                 </svg>
                               </span>
                             </p>
-                            <div class="table__cell__tooltip">
+                            <div id="tooltip-popup" class="table__cell__tooltip">
                               <div class="tooltip__cell__line">
                                 <p class="tooltip__line__value">всего</p>
                                 <p id="tooltip-total" class="tooltip__line__result">1 000 000 ₽</p>
@@ -257,7 +264,8 @@
                     </div>
 
                     <a class="result__apply"
-                       href="#"
+                       title="подать заявку"
+                       href="https://b.potok.digital/registration"
                        target="_blank">
                         подать заявку
                     </a>
@@ -267,7 +275,8 @@
                 <p class="result__disclaimer">
                   есть предложение лучше?
                   <a class="result__disclaimer-link"
-                     href="#"
+                     title="пройдите полную оценку"
+                     href="https://business.potok.digital/#limit"
                      target="_blank">
                     пройдите полную оценку,
                   </a>
@@ -276,13 +285,13 @@
               </div>
             </div>
             </div>
-
         </div>
     </div>
+  <script type="text/javascript" defer src="./assets/index-e930492f.js"></script>
 </section>
 <section class="section-placeholder">
 
 </section>
-<script type="text/javascript" src="./assets/index-74fa9366.js"></script>
+
 </body>
 </html>
