@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Vite + TS</title>
+  <script type="module" crossorigin src="/assets/index-74fa9366.js"></script>
+  <link rel="stylesheet" href="/assets/index-0d9762c2.css">
+</head>
+<body>
+<section id="app" class="section loan-calculator">
+    <div class="container">
+      <h2 class="loan-calculator-heading">калькулятор займа</h2>
+        <div class="loan-calculator">
+            <div class="loan-calculator__left-colum">
+                <!--     левая колонка       -->
+
+                <div class="loan-calculator__left-colum__input-section">
+                    <!--     сумма займа       -->
+                    <div class="loan-calculator__input-w">
+                        <label class="loan-calculator__number-input-label"
+                               for="loan-amount">
+                            сумма займа
+                        </label>
+                        <input
+                                id="loan-amount"
+                                placeholder="сумма займа"
+                                title="min:300000, max:20000000"
+                                class="loan-calculator__input-calc"
+                                type="number"
+                                max="20000000"
+                                min="300000"
+                                value="10000000"
+                                autofocus
+                        />
+                        <label for="loan-amount-range"
+                               class="loan-calculator__range_input_label">
+                            <input id="loan-amount-range"
+                                   class="loan-calculator__slider loan-calculator__slider-progress"
+                                   type="range"
+                                   max="20000000"
+                                   min="300000"
+                                   step="10000"
+                                   value="10000000"/>
+                        </label>
+                        <div class="input-description">
+                            <span>300 000 ₽</span>
+                            <span>20 000 000 ₽</span>
+                        </div>
+                    </div>
+
+                    <!--      срок займа     -->
+                    <div class="loan-calculator__input-w">
+                        <label class="loan-calculator__number-input-label"
+                               for="loan-term">
+                            срок займа
+                        </label>
+                        <input
+                                id="loan-term"
+                                maxlength="2"
+                                placeholder="срок займа, мес"
+                                title="min:1, max:24"
+                                class="loan-calculator__input-calc"
+                                type="number"
+                                max="24"
+                                min="1"
+                                value="12"
+                        />
+                        <label for="loan-term-range"
+                               class="loan-calculator__range_input_label">
+                            <input id="loan-term-range"
+                                   class="loan-calculator__slider loan-calculator__slider-progress"
+                                   type="range"
+                                   max="24"
+                                   min="1"
+                                   step="1"
+                                   value="12"/>
+                        </label>
+                      <div class="input-description">
+                        <span>1 месяц</span>
+                        <span>24 месяца</span>
+                      </div>
+                    </div>
+
+                  <!--     среднемесячная выручка       -->
+                  <div class="loan-calculator__input-w">
+                    <label class="loan-calculator__number-input-label"
+                           for="average-monthly-revenue">
+                      среднемесячная выручка
+                    </label>
+                    <input
+                            id="average-monthly-revenue"
+                            placeholder="среднемесячная выручка"
+                            title="min:0, max:20000000"
+                            class="loan-calculator__input-calc"
+                            type="text"
+                            max="20000000"
+                            min="0"
+                            value="10000000"
+                    />
+                    <label for="average-monthly-revenue-range"
+                           class="loan-calculator__range_input_label">
+                      <input id="average-monthly-revenue-range"
+                             class="loan-calculator__slider loan-calculator__slider-progress"
+                             type="range"
+                             max="20000000"
+                             min="0"
+                             step="10000"
+                             value="10000000"
+                      />
+                    </label>
+                    <div class="input-description">
+                      <span>0 ₽</span>
+                      <span>20 000 000 ₽</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="loan-calculator__left-colum__checks">
+
+                    <!--    срок регистрации компании      -->
+                    <div class="loan-calculator__input-w">
+                        <p class="loan-calculator__number-checkbox-heading">
+                            срок регистрации компании
+                        </p>
+                        <label class="loan-calculator__number-checkbox-label"
+                               for="company-registration-period">
+                            более 12 месяцев
+                            <input
+                                    id="company-registration-period"
+                                    title="более 12 месяцев"
+                                    class="loan-calculator__checkbox"
+                                    type="checkbox"
+                            />
+                            <span class="checkmark"></span>
+                        </label>
+                    </div>
+
+                    <!--    кредитная история     -->
+                    <div class="loan-calculator__input-w">
+                        <p class="loan-calculator__number-checkbox-heading">
+                            кредитная история
+                        </p>
+                        <label class="loan-calculator__number-checkbox-label"
+                               for="positive-or-neutral">
+                            положительная или нейтральная
+                            <input
+                                    id="positive-or-neutral"
+                                    title="положительная или нейтральная"
+                                    class="loan-calculator__checkbox"
+                                    type="checkbox"
+                            />
+                            <span class="checkmark"></span>
+                        </label>
+                    </div>
+
+                    <!--    стабильность выручки    -->
+                    <div class="loan-calculator__input-w">
+                        <p class="loan-calculator__number-checkbox-heading">
+                            стабильность выручки
+                        </p>
+                        <label class="loan-calculator__number-checkbox-label"
+                               for="regularly-every-month">
+                            регулярно каждый месяц
+                            <input
+                                    id="regularly-every-month"
+                                    title="положительная или нейтральная"
+                                    class="loan-calculator__checkbox"
+                                    type="checkbox"
+                            />
+                            <span class="checkmark"></span>
+                        </label>
+                    </div>
+
+                    <!--    численность сотрудников   -->
+                    <div class="loan-calculator__input-w">
+                        <p class="loan-calculator__number-checkbox-heading">
+                            численность сотрудников
+                        </p>
+                        <label class="loan-calculator__number-checkbox-label"
+                               for="number-of-employees">
+                            более 10 человек
+                            <input
+                                    id="number-of-employees"
+                                    title="более 10 человек"
+                                    class="loan-calculator__checkbox"
+                                    type="checkbox"
+                            />
+                            <span class="checkmark"></span>
+                        </label>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <!--     правая колонка       -->
+            <div class="loan-calculator__right-colum">
+              <div class="loan-calculator__right-colum__rail">
+                <div class="loan-calculator__right-colum__result">
+                    <div class="result__heading-w">
+                        <p class="result__heading">условия</p>
+                    </div>
+                    <div class="result__table">
+                        <div class="result__table__cell">
+                            <p class="table__cell__label">вероятность одобрения</p>
+                            <p class="table__cell__value">
+                                <span id="result-approval">100%</span>
+                            </p>
+                        </div>
+
+                        <div class="result__table__cell">
+                            <p class="table__cell__label">процентная ставка</p>
+                            <p class="table__cell__value">
+                                <span id="result-rate">3,2%</span>&nbsp;
+                                в месяц
+                            </p>
+                        </div>
+
+                        <div class="result__table__cell">
+                            <p class="table__cell__label">сумма платежа</p>
+                            <p class="table__cell__value">
+                                <span id="result-payment">30 000 ₽</span>&nbsp;
+                              раз в 14 дней&nbsp;
+                              <span class="table__cell__tooltip-icon">
+                              <svg xmlns="http://www.w3.org/2000/svg"
+                                     fill="none"
+                                     viewBox="0 0 20 20">
+                                  <path fill="#818E99"
+                                        d="M10 2c4.42 0 8 3.58 8 8s-3.58 8-8 8-8-3.58-8-8 3.58-8 8-8Zm1 4c0-.55-.45-1-1-1s-1 .45-1 1 .45 1 1 1 1-.45 1-1Zm-1 9c.5523 0 1-.4477 1-1v-4c0-.55228-.4477-1-1-1-.55228 0-1 .44772-1 1v4c0 .5523.44772 1 1 1Z"/>
+                                </svg>
+                              </span>
+                            </p>
+                            <div class="table__cell__tooltip">
+                              <div class="tooltip__cell__line">
+                                <p class="tooltip__line__value">всего</p>
+                                <p id="tooltip-total" class="tooltip__line__result">1 000 000 ₽</p>
+                              </div>
+                              <div class="tooltip__cell__line">
+                                <p class="tooltip__line__value">погашение долга</p>
+                                <p id="tooltip-amortization" class="tooltip__line__result">120 000 ₽</p>
+                              </div>
+                              <div class="tooltip__cell__line">
+                                <p class="tooltip__line__value">проценты</p>
+                                <p id="tooltip-interest" class="tooltip__line__result">308 330 ₽</p>
+                              </div>
+                            </div>
+                        </div>
+
+                        <div class="result__table__cell">
+                            <p class="table__cell__label">переплата</p>
+                            <p class="table__cell__value">
+                                <span id="result-overpayment">12%</span>
+                            </p>
+                        </div>
+
+                    </div>
+
+                    <a class="result__apply"
+                       href="#"
+                       target="_blank">
+                        подать заявку
+                    </a>
+
+                </div>
+              <div class="result__disclaimer-w">
+                <p class="result__disclaimer">
+                  есть предложение лучше?
+                  <a class="result__disclaimer-link"
+                     href="#"
+                     target="_blank">
+                    пройдите полную оценку,
+                  </a>
+                  и мы сделаем условия выгоднее, чем у конкурентов
+                </p>
+              </div>
+            </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+<section class="section-placeholder">
+
+</section>
+
+</body>
+</html>
